@@ -79,7 +79,8 @@ You
 will complete the project code in a Jupyter notebook.  If you are unfamiliar
 with Jupyter Notebooks, check out [Udacity's free course on Anaconda and Jupyter
 Notebooks](https://classroom.udacity.com/courses/ud1111) to get started.
-Jupyter is an Ipython notebook where you can run blocks of code and see results
+Jupyter
+is an Ipython notebook where you can run blocks of code and see results
 interactively.  All the code for this project is contained in a Jupyter
 notebook. To start Jupyter in your browser, use terminal to navigate to your
 project directory and then run the following command at the terminal prompt (be
