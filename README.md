@@ -1,10 +1,5 @@
 # **Finding Lane Lines on the Road** 
-[![Udacity - Self-Driving Car
-NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-
-carnd.svg)](http://www.udacity.com/drive)
 
-<img
-src="examples/laneLines_thirdPass.jpg" width="480" alt="Combined Image" />
 Overview
 ---
 
@@ -18,64 +13,24 @@ In this project you will detect lane lines in images using Python
 and OpenCV.  OpenCV means "Open-Source Computer Vision", which is a package that
 has many useful tools for analyzing images.  
 
-To complete the project, two
-files will be submitted: a file containing project code and a file containing a
-brief write up explaining your solution. We have included template files to be
-used both for the [code](https://github.com/udacity/CarND-
-LaneLines-P1/blob/master/P1.ipynb) and the
-[writeup](https://github.com/udacity/CarND-
-LaneLines-P1/blob/master/writeup_template.md).The code file is called P1.ipynb
-and the writeup template is writeup_template.md 
-
-To meet specifications in the
-project, take a look at the requirements in the [project
-rubric](https://review.udacity.com/#!/rubrics/322/view)
-
-
-Creating a Great
-Writeup
----
-For this project, a great writeup should provide a detailed response
-to the "Reflection" section of the [project
-rubric](https://review.udacity.com/#!/rubrics/322/view). There are three parts
-to the reflection:
-
-1. Describe the pipeline
-
-2. Identify any shortcomings
-
-3.
-Suggest possible improvements
-
-We encourage using images in your writeup to
-demonstrate how your pipeline works.  
-
-All that said, please be concise!  We're
-not looking for you to write a book here: just a brief description.
-
-You're not
-required to use markdown for your writeup.  If you use another method please
-just submit a pdf of your writeup. Here is a link to a [writeup template
-file](https://github.com/udacity/CarND-
-LaneLines-P1/blob/master/writeup_template.md). 
-
+In this project, P1.Ipynb contains the project code, which needs to be opened with Jupyter notebook.
 
 The Project
 ---
 
 ## If you
 have already installed the [CarND Term1 Starter
-Kit](https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/README.md)
+Kit](https://github.com/GuoliangPeng/CarND-Term1-Starter-Kit/blob/master/README.md)
 you should be good to go!   If not, you should install the starter kit to get
 started on this project. ##
 
 **Step 1:** Set up the [CarND Term1 Starter
-Kit](https://classroom.udacity.com/nanodegrees/nd013/parts/fbf77062-5703-404e-b60c-95b78b2f3f9e/modules/83ec35ee-1e02-48a5-bdb7-d244bd47c2dc/lessons/8c82408b-a217-4d09-b81d-1bda4c6380ef/concepts/4f1870e0-3849-43e4-b670-12e6f2d4b7a7)
+Kit](https://github.com/GuoliangPeng/CarND-Term1-Starter-Kit/blob/master/README.md)
 if you haven't already.
 
 **Step 2:** Open the code in a Jupyter Notebook
 
-You
+We
 will complete the project code in a Jupyter notebook.  If you are unfamiliar
 with Jupyter Notebooks, check out [Udacity's free course on Anaconda and Jupyter
 Notebooks](https://classroom.udacity.com/courses/ud1111) to get started.
@@ -85,20 +40,54 @@ interactively.  All the code for this project is contained in a Jupyter
 notebook. To start Jupyter in your browser, use terminal to navigate to your
 project directory and then run the following command at the terminal prompt (be
 sure you've activated your Python 3 carnd-term1 environment as described in the
-[CarND Term1 Starter Kit](https://github.com/udacity/CarND-Term1-Starter-
-Kit/blob/master/README.md) installation instructions!):
+[CarND Term1 Starter Kit](https://github.com/GuoliangPeng/CarND-Term1-Starter-Kit/blob/master/README.md) installation instructions!):
 
 `> jupyter notebook`
 
-A
-browser window will appear showing the contents of the current directory.  Click
+A browser window will appear showing the contents of the current directory.  Click
 on the file called "P1.ipynb".  Another browser window will appear displaying
 the notebook.  Follow the instructions in the notebook to complete the project.
-**Step 3:** Complete the project and submit both the Ipython notebook and the
-project writeup
 
-## How to write a README
-A well written README file can enhance
-your project and portfolio.  Develop your abilities to create professional
-README files by completing [this free
-course](https://www.udacity.com/course/writing-readmes--ud777).
+
+Algorithm ideas
+---
+
+**Finding Lane Lines on the Road**
+<br/>The goals / steps of this project are the following:</br>
+* Make a pipeline
+that finds lane lines on the road      
+* Reflect on my work in a written
+report
+---
+### Reflection 
+
+### 1. Describe my pipeline. 
+<br/>**As part of
+thedescription, explain how I modified the draw_lines() function.** </br>
+<br/>我的管道包括5个步骤:</br>  
+<br/>1.我将原始三通道图像转换成单通道灰度图像：</br>
+![gray_image](./writeup_images/gray_image.png)
+<br/>2.将灰度图像进行高斯滤波处理,使用canny算法检测图像中的边缘信息:</br>
+![edges_image](./writeup_images/edges_image.png)
+<br/>3.在感兴趣区域内通过霍夫变换对边缘点提取直线线段信息，标记出车道线:</br>
+![line_edges1_image](./writeup_images/line_edges1_image.png)
+<br/>4.将标记出的车道线叠加到原始图像中:</br>
+![line1_image](./writeup_images/line1_image.png)
+<br/>5.改进第3步标记车道线函数，对检测到的车道线进行平均和外推，用整条实线标记出完整车道线并叠加到原始图像中:</br>
+![line_edges2_image](./writeup_images/line_edges2_image.png)
+![line2_image](./writeup_images/line2_image.png)
+<br/>在`draw_lines()`函数中，使用了最小二乘法拟合直线，并限制拟合直线斜率。</br>
+
+### 2. Identify potential
+<br/>**shortcomings with my current pipeline:**</br>  
+*    一个潜在的缺点是在第5步中，使用最小二乘法拟合直线时在solidYellowLeft.mp4视频中有两帧图像拟合不准确，所以只能通过限制最小斜
+     率范围达到准确识别效果
+*    另一个缺点是此检测和拟合算法在相机颠簸的情况下拟合出来的直线左右抖动明显  
+*    此算法不适用于弯道车道线标记  
+  
+  
+### 3.Suggest
+<br/>**possible improvements to my pipeline:**</br>  
+*    一个可能的改进方式是：以线段的长度做加权平均来替代最小二乘法拟合直线 
+*    或者用其他方法来检测并拟合车道线
+
