@@ -18,8 +18,8 @@ In this project, P1.Ipynb contains the project code, which needs to be opened wi
 The Project
 ---
 
-## If you
-have already installed the [CarND Term1 Starter
+##  Deployment
+If you have already installed the [CarND Term1 Starter
 Kit](https://github.com/GuoliangPeng/CarND-Term1-Starter-Kit/blob/master/README.md)
 you should be good to go!   If not, you should install the starter kit to get
 started on this project. ##
@@ -49,8 +49,7 @@ on the file called "P1.ipynb".  Another browser window will appear displaying
 the notebook.  Follow the instructions in the notebook to complete the project.
 
 
-Algorithm ideas
----
+## Algorithm ideas
 
 **Finding Lane Lines on the Road**
 <br/>The goals / steps of this project are the following:</br>
@@ -58,8 +57,7 @@ Algorithm ideas
 that finds lane lines on the road      
 * Reflect on my work in a written
 report
----
-### Reflection 
+--- 
 
 ### 1. Describe my pipeline. 
 <br/>**As part of
