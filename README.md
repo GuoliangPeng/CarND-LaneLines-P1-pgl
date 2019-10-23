@@ -95,5 +95,5 @@ thedescription, explain how I modified the draw_lines() function.** </br>
 ### 3.Suggest
 <br/>**possible improvements to my pipeline:**</br>  
 *    一个可能的改进方式是：以线段的长度做加权平均来替代最小二乘法拟合直线 
-*    或者用其他方法来检测并拟合车道线
+*    或者用其他方法来检测并拟合车道线  :point_right: [这里](https://github.com/GuoliangPeng/CarND-Advanced-Lane-Lines-pgl)
 
